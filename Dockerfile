@@ -1,12 +1,12 @@
 FROM sameersbn/squid:latest
 MAINTAINER johan@linkdata.se
 
-ENV SQUID_USER=proxy \
-    SQUIDGUARD_DB_DIR=/var/lib/squidguard/db \
+ENV SQUIDGUARD_DB_DIR=/var/lib/squidguard/db \
+    SQUIDGUARD_BLOCK_URL=http://localhost/block.html \
     SQUIDGUARD_BLACKLIST_URL=http://www.shallalist.de/Downloads/shallalist.tar.gz
 
 RUN apt-get update \
- && apt-get install -y dnsmasq squidguard
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends dnsmasq squidguard
 
 ADD dnsmasq.conf /etc/dnsmasq.conf
 ADD block.html /var/www/html/block.html

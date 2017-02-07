@@ -1,4 +1,4 @@
 all: build
 
 build:
-	@docker build --tag=${USER}/docker-squidguard .
+	@docker build --tag=linkdata/docker-parentalproxy .
