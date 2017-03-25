@@ -19,7 +19,6 @@ RUN echo "dns_v4_first on" >> /etc/squid3/squid.conf
 RUN echo "dns_nameservers 127.0.0.2" >> /etc/squid3/squid.conf
 RUN echo "forwarded_for off" >> /etc/squid3/squid.conf
 RUN echo "redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf" >> /etc/squid3/squid.conf
-RUN sed -i "s#http_port 3128#http_port 0.0.0.0:3128#" /etc/squid3/squid.conf
 
 EXPOSE 3128/tcp
 
