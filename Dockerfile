@@ -15,10 +15,10 @@ ADD squidGuard.conf /etc/squidguard/squidGuard.conf
 
 RUN chmod 755 /sbin/squidGuard.sh
 
-RUN echo "dns_v4_first on" >> /etc/squid3/squid.conf
-RUN echo "dns_nameservers 127.0.0.2" >> /etc/squid3/squid.conf
-RUN echo "forwarded_for off" >> /etc/squid3/squid.conf
-RUN echo "redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf" >> /etc/squid3/squid.conf
+RUN echo "dns_v4_first on" >> /etc/squid/squid.conf
+RUN echo "dns_nameservers 127.0.0.2" >> /etc/squid/squid.conf
+RUN echo "forwarded_for off" >> /etc/squid/squid.conf
+RUN echo "redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf" >> /etc/squid/squid.conf
 
 EXPOSE 3128/tcp
 
